@@ -1,0 +1,8 @@
+/* Admin theme — matches the Kazim Textiles brand (navy + orange). */
+:root { --kt-navy: #0d2440; --kt-accent: #e0602e; --style-radius-s: 4px; --style-radius-m: 8px; --style-radius-l: 12px; }
+.btn--style-primary:not(.btn--disabled) { --bg-color: var(--kt-navy); --hover-bg: #1b4573; --color: #fff; --hover-color: #fff; }
+.nav__link-indicator { background: var(--kt-accent); }
+.checkbox-input--checked .checkbox-input__icon { background-color: var(--kt-navy) !important; border-color: var(--kt-navy) !important; }
+.kt-admin-logo { display: block; width: 180px; height: auto; }
+html[data-theme='dark'] .kt-admin-logo { background: #fff; padding: 10px 14px; border-radius: 12px; }
+.kt-admin-icon { display: block; width: 28px; height: 28px; object-fit: contain; }

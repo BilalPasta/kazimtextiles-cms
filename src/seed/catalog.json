@@ -1,0 +1,875 @@
+{
+  "categories": [
+    {
+      "slug": "industrial-wiping-cleaning",
+      "name": "Industrial Wiping & Cleaning",
+      "intro": "Commercial wiping essentials for machine shops, janitorial distributors, maintenance teams, and commercial laundry buyers.",
+      "image": "assets/images/towels-11.webp",
+      "keywords": "wholesale shop towels, bulk wiping rags, industrial cleaning cloths",
+      "rfq": "Material, weave, lint level, dimensions, packaging format, and intended cleaning application."
+    },
+    {
+      "slug": "kitchen-foodservice-towels",
+      "name": "Kitchen & Foodservice Towels",
+      "intro": "Purpose-built kitchen, flour sack, bar mop, and glass-cleaning towels for foodservice operators and supply distributors.",
+      "image": "assets/images/towels-13.webp",
+      "keywords": "wholesale kitchen towels, bulk flour sack towels, restaurant bar mop towels",
+      "rfq": "Absorbency requirements, stripe color, towel weight per dozen, laundering frequency, and case packs."
+    },
+    {
+      "slug": "restaurant-table-linens",
+      "name": "Restaurant & Table Linens",
+      "intro": "Napkins, tablecloths, runners, and placemats for restaurants, caterers, event suppliers, and linen programs.",
+      "image": "assets/images/towels-24.webp",
+      "keywords": "wholesale restaurant linens, bulk cloth napkins, restaurant tablecloths",
+      "rfq": "Fabric composition, table dimensions, fabric weight, shape, pattern, and finishing."
+    },
+    {
+      "slug": "hotel-bath-spa",
+      "name": "Hotel, Bath & Spa Textiles",
+      "intro": "Towels, sheets, spa linens, and institutional bedding specifications for hospitality and commercial distribution.",
+      "image": "assets/images/towels-32.webp",
+      "keywords": "wholesale hotel towels, hospitality bath linens, bulk hotel sheets",
+      "rfq": "Towel weight, wash durability, sheet thread count, bedding dimensions, and commercial laundering."
+    },
+    {
+      "slug": "healthcare-institutional",
+      "name": "Healthcare & Institutional",
+      "intro": "Textiles and apparel for medical facilities, care settings, and institutional textile supply programs.",
+      "image": "assets/images/uniforms-13.webp",
+      "keywords": "wholesale medical scrubs, patient gowns, hospital linen supplier",
+      "rfq": "Facility-approved material, sizes, laundering protocols, gown use case, and compliance documentation."
+    },
+    {
+      "slug": "apparel-uniforms-workwear",
+      "name": "Apparel, Uniforms & Workwear",
+      "intro": "Essential apparel, thermals, restaurant uniforms, medical apparel, and private-label basics.",
+      "image": "assets/images/uniforms-21.webp",
+      "keywords": "wholesale blank t shirts, wholesale chef uniforms, bulk thermal shirts",
+      "rfq": "Fabric blend, garment fit, size grading, labeling, stitching, and packaging."
+    },
+    {
+      "slug": "home-decorative",
+      "name": "Home & Decorative Textiles",
+      "intro": "Printed curtains, window panels, embroidered home linens, table accents, and decorative fabric programs.",
+      "image": "assets/images/home-curtains.webp",
+      "keywords": "wholesale curtains, printed home textiles, embroidered table linens",
+      "rfq": "Pattern repeat, fabric composition, panel sizing, print artwork, hem and header styles."
+    },
+    {
+      "slug": "technical-industrial-fabrics",
+      "name": "Technical & Industrial Fabrics",
+      "intro": "Specification-led woven cotton fabrics, filter cloth, and fabric rolls for industrial applications.",
+      "image": "assets/images/towels_alt-14.webp",
+      "keywords": "cotton filter cloth supplier, industrial woven cotton fabric wholesale",
+      "rfq": "Construction, ends/picks, GSM, roll width, finish, permeability testing, and engineering approval."
+    }
+  ],
+  "products": [
+    {
+      "name": "Shop Towels",
+      "slug": "shop-towels",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels-11.webp",
+      "description": "Reusable industrial wiping towels for oil, grease, general maintenance, and workshop cleanup.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Maintenance and equipment wiping"
+    },
+    {
+      "name": "Huck Towels",
+      "slug": "huck-towels",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels-12.webp",
+      "description": "Low-lint huck-weave towels commonly requested for glass, precision wiping, and janitorial work.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Glass and commercial cleaning"
+    },
+    {
+      "name": "Terry Wiping Towels",
+      "slug": "terry-wiping-towels",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels_alt-21.webp",
+      "description": "Loop-pile terry cleaning towels for absorbent wipe-down tasks and maintenance supply programs.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Absorbent general-purpose wiping"
+    },
+    {
+      "name": "Striped Wiping Cloths",
+      "slug": "striped-wiping-cloths",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels_alt-22.webp",
+      "description": "Striped wiping cloth assortments for bulk cleaning, housekeeping, and industrial redistribution.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Commercial wiping and redistribution"
+    },
+    {
+      "name": "Cotton Cleaning Rags",
+      "slug": "cotton-cleaning-rags",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels-22.webp",
+      "description": "Cotton rag options for workshop, painting, cleaning, and industrial supply orders.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Shop and cleaning operations"
+    },
+    {
+      "name": "Industrial Wiping Cloths",
+      "slug": "industrial-wiping-cloths",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels_alt-22.webp",
+      "description": "Specification-led industrial wiping cloths quoted by textile composition, weight, and packing method.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Factory and industrial wiping"
+    },
+    {
+      "name": "Microfiber Cleaning Cloths",
+      "slug": "microfiber-cleaning-cloths",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels-23.webp",
+      "description": "Microfiber cloth programs for dusting, surface detailing, and facility-maintenance applications.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Janitorial and commercial detailing"
+    },
+    {
+      "name": "Polishing Cloths",
+      "slug": "polishing-cloths",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Soft polishing and finishing cloths for glass, equipment surfaces, and detailing work.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Polishing and finishing"
+    },
+    {
+      "name": "Cotton Wiping Rag Bales",
+      "slug": "cotton-wiping-rag-bales",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels-22.webp",
+      "description": "Large-volume wiping rag bales for distributor and manufacturing purchase orders; ask about bale weight.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Bulk rag distribution"
+    },
+    {
+      "name": "White Shop Towels",
+      "slug": "white-shop-towels",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "White utility shop towels for commercial laundries and buyers preferring an undyed wiping product.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Industrial supply"
+    },
+    {
+      "name": "Blue Huck Towels",
+      "slug": "blue-huck-towels",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels_alt-23.webp",
+      "description": "Blue huck-weave wiping towels, frequently sourced for cleaning and institutional applications.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Institutional and janitorial supply"
+    },
+    {
+      "name": "Reclaimed Wiping Rags",
+      "slug": "reclaimed-wiping-rags",
+      "category": "industrial-wiping-cleaning",
+      "image": "assets/images/towels-22.webp",
+      "description": "Mixed reclaimed textile wiping rags; material grades and sorting specifications require supplier review.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Industrial rag programs"
+    },
+    {
+      "name": "Kitchen Towels",
+      "slug": "kitchen-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels-13.webp",
+      "description": "Commercial kitchen towels with woven stripe and herringbone-style options for routine foodservice use.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Restaurant prep and kitchen cleanup"
+    },
+    {
+      "name": "Flour Sack Towels",
+      "slug": "flour-sack-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels-14.webp",
+      "description": "Plain-weave, lightweight flour sack towels for food prep, baking, drying, and general kitchen tasks.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Foodservice and baking"
+    },
+    {
+      "name": "Bar Mop Towels",
+      "slug": "bar-mop-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels-21.webp",
+      "description": "Absorbent terry bar mop towels for counters, service stations, beverage areas, and restaurant cleanup.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Restaurants and bars"
+    },
+    {
+      "name": "Bar Towels",
+      "slug": "bar-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels-21.webp",
+      "description": "Commercial bar towels for polishing, drying, and fast-moving hospitality cleaning needs.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Bars and hospitality"
+    },
+    {
+      "name": "Herringbone Kitchen Towels",
+      "slug": "herringbone-kitchen-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels-13.webp",
+      "description": "Woven herringbone kitchen towels with colored center stripes for institutional kitchen programs.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Commercial kitchens"
+    },
+    {
+      "name": "Dish Towels",
+      "slug": "dish-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels-31.webp",
+      "description": "Kitchen dish towels for glassware, cookware, and prep-area drying requirements.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Foodservice drying"
+    },
+    {
+      "name": "Tea Towels",
+      "slug": "tea-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels-14.webp",
+      "description": "Lightweight tea towels suitable for hospitality, promotional textile programs, or kitchen use.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Kitchen and gift distribution"
+    },
+    {
+      "name": "Glass & Polishing Towels",
+      "slug": "glass-polishing-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Smooth-finish cloth options for drying glassware and polished serving surfaces.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Restaurants and catering"
+    },
+    {
+      "name": "Terry Kitchen Towels",
+      "slug": "terry-kitchen-towels",
+      "category": "kitchen-foodservice-towels",
+      "image": "assets/images/towels_alt-21.webp",
+      "description": "Commercial terry towels intended for heavy-duty absorbency around kitchen and service operations.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Food preparation areas"
+    },
+    {
+      "name": "Solid Color Napkins",
+      "slug": "solid-color-napkins",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-32.webp",
+      "description": "Solid-dyed restaurant napkins with woven and blended fabric options from the referenced MJS product range.",
+      "status": "catalog",
+      "catalog_page": "3",
+      "application": "Restaurants and catering"
+    },
+    {
+      "name": "Bistro Stripe Napkins",
+      "slug": "bistro-stripe-napkins",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-31.webp",
+      "description": "Bistro-striped commercial napkins with multiple colorways and a supplier-documented reference size.",
+      "status": "catalog",
+      "catalog_page": "3-4",
+      "application": "Casual dining and table service"
+    },
+    {
+      "name": "Restaurant Tablecloths",
+      "slug": "restaurant-tablecloths",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/towels-24.webp",
+      "description": "Restaurant tablecloths in square, rectangular, and round formats, available by specification.",
+      "status": "catalog",
+      "catalog_page": "10-16",
+      "application": "Restaurant and banquet service"
+    },
+    {
+      "name": "Printed Table Covers",
+      "slug": "printed-table-covers",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/towels-24.webp",
+      "description": "Printed textile table covers and custom patterns for foodservice, retail, and event programs.",
+      "status": "catalog",
+      "catalog_page": "10-15",
+      "application": "Event and restaurant tables"
+    },
+    {
+      "name": "Table Runners",
+      "slug": "table-runners",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-34.webp",
+      "description": "Coordinating table runners for hotel, dining, and catered event presentations.",
+      "status": "catalog",
+      "catalog_page": "16",
+      "application": "Banquet and event linens"
+    },
+    {
+      "name": "Embroidered Table Runners",
+      "slug": "embroidered-table-runners",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-34.webp",
+      "description": "Decorative table runners with overall embroidery or placement motifs; design constraints apply.",
+      "status": "catalog",
+      "catalog_page": "17",
+      "application": "Decorative table settings"
+    },
+    {
+      "name": "Embroidered Placemats",
+      "slug": "embroidered-placemats",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-33.webp",
+      "description": "Decorative placemats with motif embroidery, coordinated colors, and made-to-order finishing.",
+      "status": "catalog",
+      "catalog_page": "8-9",
+      "application": "Restaurant and retail tables"
+    },
+    {
+      "name": "Quilted Placemats",
+      "slug": "quilted-placemats",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-33.webp",
+      "description": "Quilted placemats with stitched surface designs and color options for tableware programs.",
+      "status": "catalog",
+      "catalog_page": "8-9",
+      "application": "Tabletop accessories"
+    },
+    {
+      "name": "Round Placemats",
+      "slug": "round-placemats",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-33.webp",
+      "description": "Round ruffled placemats with textile finishes suited to decorative and event settings.",
+      "status": "catalog",
+      "catalog_page": "8",
+      "application": "Decorative table settings"
+    },
+    {
+      "name": "Printed Cloth Napkins",
+      "slug": "printed-cloth-napkins",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-31.webp",
+      "description": "Patterned cloth napkins for private-label dining textiles and coordinating table collections.",
+      "status": "catalog",
+      "catalog_page": "10",
+      "application": "Restaurant and retail textiles"
+    },
+    {
+      "name": "Polyester Table Linens",
+      "slug": "polyester-table-linens",
+      "category": "restaurant-table-linens",
+      "image": "assets/images/uniforms-32.webp",
+      "description": "Polyester and poly-blend table linen options for repeat-use commercial dining programs.",
+      "status": "catalog",
+      "catalog_page": "3",
+      "application": "Commercial dining linens"
+    },
+    {
+      "name": "Bath Towels",
+      "slug": "bath-towels",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels-32.webp",
+      "description": "Wholesale bath towels for hospitality and institutional customers; confirm fabric and weight grade.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hotels and spas"
+    },
+    {
+      "name": "Hand Towels",
+      "slug": "hand-towels",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-32.webp",
+      "description": "Commercial hand towels in requested sizes, finish types, and case quantities.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hotel guestrooms and bathrooms"
+    },
+    {
+      "name": "Washcloths",
+      "slug": "washcloths",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Small-format terry washcloths for hotels, facilities, and hospitality distributors.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Guestrooms and amenity kits"
+    },
+    {
+      "name": "Bath Mats",
+      "slug": "bath-mats",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-21.webp",
+      "description": "Bath mats for hospitality washroom programs, supplied to agreed material and weight specifications.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hotel bathrooms"
+    },
+    {
+      "name": "Pool Towels",
+      "slug": "pool-towels",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels-34.webp",
+      "description": "Pool and cabana towel programs with stripe and color options subject to supplier confirmation.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Poolside and hospitality"
+    },
+    {
+      "name": "Salon Towels",
+      "slug": "salon-towels",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels-33.webp",
+      "description": "Salon hand towels and washcloths with optional dark colors and finish requirements.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Salons and barbershops"
+    },
+    {
+      "name": "Spa Towels",
+      "slug": "spa-towels",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels-32.webp",
+      "description": "Plush towel and treatment-linen options for spas, wellness locations, and resort programs.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Spa treatments"
+    },
+    {
+      "name": "Flat Bed Sheets",
+      "slug": "flat-bed-sheets",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Commercial flat sheets quoted by bed size, fabric blend, thread count, and wash requirements.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hospitality bedding"
+    },
+    {
+      "name": "Fitted Bed Sheets",
+      "slug": "fitted-bed-sheets",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Fitted sheet programs with mattress depth and corner sizing specified before sampling.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hotels and serviced apartments"
+    },
+    {
+      "name": "Pillowcases",
+      "slug": "pillowcases",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Standard, queen, and king pillowcase programs for contract hospitality supply.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hotel bedding"
+    },
+    {
+      "name": "Duvet Covers",
+      "slug": "duvet-covers",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Hotel duvet covers with fabric, closure, and bedding dimensions defined by buyer requirements.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hotels and hospitality retail"
+    },
+    {
+      "name": "Mattress Protectors",
+      "slug": "mattress-protectors",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Institutional mattress protectors and encasements, subject to material and performance validation.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hospitality bedding"
+    },
+    {
+      "name": "Bathrobes & Spa Wraps",
+      "slug": "bathrobes-spa-wraps",
+      "category": "hotel-bath-spa",
+      "image": "assets/images/towels-32.webp",
+      "description": "Wholesale robe and spa wrap programs with size, fabric weight, and embroidery options.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Spa and hospitality"
+    },
+    {
+      "name": "Medical Scrub Sets",
+      "slug": "medical-scrub-sets",
+      "category": "healthcare-institutional",
+      "image": "assets/images/uniforms-13.webp",
+      "description": "Scrub tops and pants for healthcare apparel orders, with fabric, color, and grading confirmed per project.",
+      "status": "catalog",
+      "catalog_page": "7",
+      "application": "Medical uniforms"
+    },
+    {
+      "name": "Patient Gowns",
+      "slug": "patient-gowns",
+      "category": "healthcare-institutional",
+      "image": "assets/images/uniforms-14.webp",
+      "description": "Patient gown styles from the supplier catalog; approval depends on intended care setting and gown requirements.",
+      "status": "catalog",
+      "catalog_page": "7",
+      "application": "Healthcare institutions"
+    },
+    {
+      "name": "Hospital Bed Sheets",
+      "slug": "hospital-bed-sheets",
+      "category": "healthcare-institutional",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Healthcare bed linens proposed for institutional buyers with facility-specific laundering specifications.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hospitals and care facilities"
+    },
+    {
+      "name": "Hospital Blankets",
+      "slug": "hospital-blankets",
+      "category": "healthcare-institutional",
+      "image": "assets/images/towels-32.webp",
+      "description": "Blanket options for institutional textile programs; fabric and performance require confirmation.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Care facilities"
+    },
+    {
+      "name": "Reusable Underpads",
+      "slug": "reusable-underpads",
+      "category": "healthcare-institutional",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Reusable bed pads quoted against absorbency, barrier, and laundering requirements.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Healthcare care settings"
+    },
+    {
+      "name": "Patient Bibs",
+      "slug": "patient-bibs",
+      "category": "healthcare-institutional",
+      "image": "assets/images/uniforms-14.webp",
+      "description": "Protective patient feeding bibs and care textiles subject to sampling and supply validation.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Long-term care facilities"
+    },
+    {
+      "name": "Lab Coats",
+      "slug": "lab-coats",
+      "category": "healthcare-institutional",
+      "image": "assets/images/uniforms-11.webp",
+      "description": "Healthcare and laboratory coats with pocket, closure, and material options.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Clinics and laboratories"
+    },
+    {
+      "name": "Laundry Bags & Linen Collection Bags",
+      "slug": "laundry-bags-linen-collection-bags",
+      "category": "healthcare-institutional",
+      "image": "assets/images/towels-22.webp",
+      "description": "Reusable textile laundry and collection bags for linen transport and institutional handling.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Hospital laundry programs"
+    },
+    {
+      "name": "Chef Coats",
+      "slug": "chef-coats",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-11.webp",
+      "description": "Chef jackets and coats with closure, sleeve, trim, and commercial kitchen fabric options.",
+      "status": "catalog",
+      "catalog_page": "6",
+      "application": "Restaurants and catering staff"
+    },
+    {
+      "name": "Chef Shirts",
+      "slug": "chef-shirts",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-11.webp",
+      "description": "Chef shirts for foodservice staff with fit and fabric confirmed against approved samples.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Foodservice staff uniforms"
+    },
+    {
+      "name": "Chef Pants",
+      "slug": "chef-pants",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-24.webp",
+      "description": "Restaurant chef pants with size range, color, and fabric construction set by purchase order.",
+      "status": "catalog",
+      "catalog_page": "6",
+      "application": "Professional kitchens"
+    },
+    {
+      "name": "Chef Hats",
+      "slug": "chef-hats",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-11.webp",
+      "description": "Traditional chef hats and kitchen headwear as part of coordinated chef-uniform sets.",
+      "status": "catalog",
+      "catalog_page": "6",
+      "application": "Restaurant headwear"
+    },
+    {
+      "name": "Bib Aprons",
+      "slug": "bib-aprons",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-12.webp",
+      "description": "Full-coverage restaurant bib aprons, with supplier-catalog pocket and embroidered variations.",
+      "status": "catalog",
+      "catalog_page": "5",
+      "application": "Chefs, servers, and catering staff"
+    },
+    {
+      "name": "Waist Aprons",
+      "slug": "waist-aprons",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-12.webp",
+      "description": "Shorter waist apron variations for front-of-house and hospitality uniform programs.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Waitstaff and hospitality teams"
+    },
+    {
+      "name": "Short Sleeve T Shirts",
+      "slug": "short-sleeve-t-shirts",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-21.webp",
+      "description": "Wholesale blank short-sleeve T-shirts for resale, workwear, and private-label programs.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Private label and uniforms"
+    },
+    {
+      "name": "Long Sleeve T Shirts",
+      "slug": "long-sleeve-t-shirts",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-22.webp",
+      "description": "Long-sleeve knit basics with garment weight, cotton blend, and size range quoted by style.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Workwear and resale"
+    },
+    {
+      "name": "Thermal Shirts",
+      "slug": "thermal-shirts",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-23.webp",
+      "description": "Waffle-knit thermal tops for wholesale garment programs and seasonal basics.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Thermal base layers"
+    },
+    {
+      "name": "Blank Apparel",
+      "slug": "blank-apparel",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-21.webp",
+      "description": "Blank garment sourcing for private-label decoration, retail, and promotional production.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Wholesale apparel customization"
+    },
+    {
+      "name": "Tank Tops & Undershirts",
+      "slug": "tank-tops-undershirts",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-24.webp",
+      "description": "Cotton undershirts and tank tops for multipack resale and private label orders.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Basic apparel retail"
+    },
+    {
+      "name": "Boxer Briefs",
+      "slug": "boxer-briefs",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-24.webp",
+      "description": "Men’s boxer-brief multipacks with waistband, composition, and grading customized by order.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Underwear distribution"
+    },
+    {
+      "name": "Workwear Uniforms",
+      "slug": "workwear-uniforms",
+      "category": "apparel-uniforms-workwear",
+      "image": "assets/images/uniforms-11.webp",
+      "description": "Industrial and service workwear supplied to agreed fabric, trim, and branding requirements.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Industrial and service teams"
+    },
+    {
+      "name": "Solid Color Curtains",
+      "slug": "solid-color-curtains",
+      "category": "home-decorative",
+      "image": "assets/images/home-curtains.webp",
+      "description": "Plain dyed window curtain panels with sizing, color, and header styles agreed per order.",
+      "status": "catalog",
+      "catalog_page": "18",
+      "application": "Retail and hospitality interiors"
+    },
+    {
+      "name": "Printed Curtains",
+      "slug": "printed-curtains",
+      "category": "home-decorative",
+      "image": "assets/images/home-curtains.webp",
+      "description": "Printed window curtain designs, including patterned panel collections in the MJS range.",
+      "status": "catalog",
+      "catalog_page": "19-20",
+      "application": "Decorative windows"
+    },
+    {
+      "name": "Decorative Placemats",
+      "slug": "decorative-placemats",
+      "category": "home-decorative",
+      "image": "assets/images/uniforms-33.webp",
+      "description": "Quilted and embroidered table accents for home textile collections and private label.",
+      "status": "catalog",
+      "catalog_page": "8-9",
+      "application": "Home décor and tableware"
+    },
+    {
+      "name": "Decorative Table Runners",
+      "slug": "decorative-table-runners",
+      "category": "home-decorative",
+      "image": "assets/images/uniforms-34.webp",
+      "description": "Embroidered runners and home décor table accents with custom motifs.",
+      "status": "catalog",
+      "catalog_page": "17",
+      "application": "Home and gifting"
+    },
+    {
+      "name": "Custom Printed Home Textiles",
+      "slug": "custom-printed-home-textiles",
+      "category": "home-decorative",
+      "image": "assets/images/towels-24.webp",
+      "description": "Custom printed finished textiles using artwork, repeats, and colors agreed in preproduction.",
+      "status": "catalog",
+      "catalog_page": "10",
+      "application": "Retail home collections"
+    },
+    {
+      "name": "Cotton Filter Cloth",
+      "slug": "cotton-filter-cloth",
+      "category": "technical-industrial-fabrics",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Woven cotton filter fabric intended for industrial filtration applications, subject to testing and buyer engineering approval.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Air and industrial filtration"
+    },
+    {
+      "name": "Woven Cotton Fabric Rolls",
+      "slug": "woven-cotton-fabric-rolls",
+      "category": "technical-industrial-fabrics",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Industrial woven cotton rolls for converting, with construction and finish confirmed on technical specifications.",
+      "status": "identified",
+      "catalog_page": null,
+      "application": "Fabric converting and processing"
+    },
+    {
+      "name": "Custom Fabric Construction",
+      "slug": "custom-fabric-construction",
+      "category": "technical-industrial-fabrics",
+      "image": "assets/images/towels_alt-14.webp",
+      "description": "Made-to-spec woven fabric enquiries based on yarn count, thread density, width, GSM, and testing requirements.",
+      "status": "proposed",
+      "catalog_page": null,
+      "application": "Specification-led textile production"
+    }
+  ],
+  "industries": [
+    {
+      "slug": "restaurants-foodservice",
+      "name": "Restaurants & Foodservice",
+      "description": "Commercial kitchen towels, table linens, chef apparel and foodservice wiping programs.",
+      "categories": [
+        "kitchen-foodservice-towels",
+        "restaurant-table-linens",
+        "apparel-uniforms-workwear"
+      ]
+    },
+    {
+      "slug": "hotels-hospitality",
+      "name": "Hotels & Hospitality",
+      "description": "Bath linens, housekeeping textiles, bedding and restaurant textiles.",
+      "categories": [
+        "hotel-bath-spa",
+        "restaurant-table-linens",
+        "home-decorative"
+      ]
+    },
+    {
+      "slug": "healthcare-medical",
+      "name": "Healthcare & Medical",
+      "description": "Medical uniforms, patient gowns and institutional linen sourcing inquiries.",
+      "categories": [
+        "healthcare-institutional",
+        "industrial-wiping-cleaning"
+      ]
+    },
+    {
+      "slug": "commercial-laundries",
+      "name": "Commercial Laundries",
+      "description": "Repeat-use textiles, institutional towels, wiping programs and supply specifications.",
+      "categories": [
+        "industrial-wiping-cleaning",
+        "kitchen-foodservice-towels",
+        "hotel-bath-spa"
+      ]
+    },
+    {
+      "slug": "janitorial-industrial",
+      "name": "Janitorial & Industrial",
+      "description": "Wholesale shop towels, wiping rags, microfiber and technical cleaning textiles.",
+      "categories": [
+        "industrial-wiping-cleaning",
+        "technical-industrial-fabrics"
+      ]
+    },
+    {
+      "slug": "wholesale-distributors",
+      "name": "Wholesale Distributors",
+      "description": "Category sourcing, multipacks, private labeling and repeatable bulk purchase orders.",
+      "categories": [
+        "industrial-wiping-cleaning",
+        "kitchen-foodservice-towels",
+        "restaurant-table-linens",
+        "hotel-bath-spa",
+        "healthcare-institutional",
+        "apparel-uniforms-workwear",
+        "home-decorative",
+        "technical-industrial-fabrics"
+      ]
+    }
+  ]
+}

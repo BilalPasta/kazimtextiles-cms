@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - '5440:5432'
+    environment:
+      POSTGRES_USER: kazim
+      POSTGRES_PASSWORD: kazim
+      POSTGRES_DB: kazim_textiles
+    volumes:
+      - data:/var/lib/postgresql/data
+
+volumes:
+  data:
