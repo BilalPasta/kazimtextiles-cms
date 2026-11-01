@@ -8,9 +8,18 @@ export type QuoteState = { error?: string }
 
 const str = (fd: FormData, key: string, max = 500) => String(fd.get(key) ?? '').trim().slice(0, max)
 
+/**
+ * Honeypot: bots fill every field; humans never see this one. Its name and display:none keep browser
+ * autofill out of it, because a filled honeypot discards the request while still showing the thank-you page.
+ */
+const isBot = (fd: FormData, form: string) => {
+  if (!str(fd, 'hp_check')) return false
+  console.warn(`Quote request discarded by honeypot (${form})`)
+  return true
+}
+
 export async function submitQuote(_prev: QuoteState, fd: FormData): Promise<QuoteState> {
-  // Honeypot: bots fill every field; humans never see this one.
-  if (str(fd, 'company_website')) redirect('/thank-you')
+  if (isBot(fd, 'quote form')) redirect('/thank-you')
 
   const data = {
     name: str(fd, 'name', 120),
@@ -47,7 +56,7 @@ export type FinderState = { error?: string }
 
 /** Quote Finder (homepage): industry + selected products with quantities + short contact form. */
 export async function submitFinderQuote(_prev: FinderState, fd: FormData): Promise<FinderState> {
-  if (str(fd, 'company_website')) redirect('/thank-you')
+  if (isBot(fd, 'quote finder')) redirect('/thank-you')
 
   let items: { product: string; quantity: string }[] = []
   try {
