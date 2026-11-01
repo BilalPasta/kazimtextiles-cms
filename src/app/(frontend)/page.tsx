@@ -47,7 +47,7 @@ export default async function HomePage() {
             <QuoteFinder
               title={home.finder?.title}
               subtitle={home.finder?.subtitle}
-              industries={industries.map((i) => ({ slug: i.slug!, name: i.name, icon: i.icon, categories: (i.categories ?? []).map((c) => (c as Category).slug ?? '') }))}
+              industries={industries.map((i) => ({ slug: i.slug!, name: i.name, icon: i.icon, categories: populatedList<Category>(i.categories).map((c) => c.slug ?? '') }))}
               products={products.map((p) => ({
                 slug: p.slug!,
                 name: p.name,

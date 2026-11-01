@@ -5,6 +5,7 @@ const prefixes: Record<string, string> = {
   categories: '/categories/',
   industries: '/industries/',
   guides: '/guides/',
+  posts: '/blog/',
   pages: '/',
 }
 

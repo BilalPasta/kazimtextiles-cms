@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { DefaultCta } from '@/components/CtaBand'
 import { Faqs } from '@/components/Faqs'
 import { Img } from '@/components/Img'
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CategoryPage({ params }: Props) {
   const category = await getCategory((await params).slug)
   if (!category) notFound()
+  if (category.hidden) permanentRedirect('/products')
   const [all, industries] = await Promise.all([getProducts(), getIndustries()])
   const products = all.filter((p) => (p.category as Category | null)?.id === category.id)
   const servedIndustries = industries.filter((i) => i.categories?.some((c) => (typeof c === 'object' ? c.id : c) === category.id))

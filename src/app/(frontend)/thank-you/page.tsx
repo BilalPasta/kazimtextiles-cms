@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: 'Thank you | Kazim Textiles', robots:
 export default function ThankYouPage() {
   return (
     <>
-      <PageHead crumbs={[{ label: 'Thank you' }]} title="Thank you — we've received your request." intro="Our team will review your requirements and get back to you, usually within one business day." />
+      <PageHead crumbs={[{ label: 'Thank you' }]} title="Thank you — we've received your request." intro="Our team will review your requirements and get back to you as soon as we can." />
       <section className="section">
         <div className="container horizontal-links">
           <Link href="/products">Keep browsing products →</Link>

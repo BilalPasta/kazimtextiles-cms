@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { DefaultCta } from '@/components/CtaBand'
 import { Faqs } from '@/components/Faqs'
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductPage({ params }: Props) {
   const product = await getProduct((await params).slug)
   if (!product) notFound()
+  if (product.hidden) permanentRedirect('/products')
 
   const category = populated<Category>(product.category)
   const industries = populatedList<Industry>(product.industries)

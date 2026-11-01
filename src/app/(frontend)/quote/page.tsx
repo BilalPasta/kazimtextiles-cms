@@ -1,22 +1,29 @@
 import type { Metadata } from 'next'
 import { PageHead } from '@/components/PageHead'
-import { getIndustries, getProducts, getSiteSettings } from '@/lib/payload'
+import { getProducts, getSiteSettings, populated } from '@/lib/payload'
 import { buildMetadata } from '@/lib/seo'
-import { QuoteForm } from './QuoteForm'
+import type { Category } from '@/payload-types'
+import { QuoteForm, type ProductGroup } from './QuoteForm'
 
 const title = 'Request a Wholesale Quote'
-const intro = 'Tell us what you need — product, size, fabric, quantity and delivery location. We produce to your specification and reply with a written quotation.'
+const intro = 'Tell us what you need and roughly how many. We produce to your specification and reply with a written quotation.'
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({ title, description: intro, path: '/quote' })
 }
 
-type Props = { searchParams: Promise<{ product?: string; industry?: string }> }
+type Props = { searchParams: Promise<{ product?: string }> }
 
 export default async function QuotePage({ searchParams }: Props) {
-  const [{ product, industry }, products, industries, settings] = await Promise.all([searchParams, getProducts(), getIndustries(), getSiteSettings()])
+  const [{ product }, products, settings] = await Promise.all([searchParams, getProducts(), getSiteSettings()])
   const productLabel = products.find((p) => p.slug === product)?.name
-  const industryLabel = industries.find((i) => i.slug === industry)?.name
+  const productGroups: ProductGroup[] = []
+  for (const p of products) {
+    const label = populated<Category>(p.category)?.name ?? 'Other'
+    const group = productGroups.find((g) => g.label === label)
+    if (group) group.products.push(p.name)
+    else productGroups.push({ label, products: [p.name] })
+  }
   return (
     <>
       <PageHead crumbs={[{ label: 'Request a quote' }]} eyebrow="Wholesale inquiry" title={title} intro={intro} />
@@ -45,12 +52,7 @@ export default async function QuotePage({ searchParams }: Props) {
               </div>
             )}
           </div>
-          <QuoteForm
-            products={products.map((p) => ({ value: p.slug!, label: p.name }))}
-            industries={industries.map((i) => ({ value: i.slug!, label: i.name }))}
-            defaultProduct={productLabel}
-            defaultIndustry={industryLabel}
-          />
+          <QuoteForm productGroups={productGroups} defaultProduct={productLabel} />
         </div>
       </section>
     </>

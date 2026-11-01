@@ -72,6 +72,7 @@ export interface Config {
     industries: Industry;
     pages: Page;
     guides: Guide;
+    posts: Post;
     inquiries: Inquiry;
     media: Media;
     users: User;
@@ -88,6 +89,7 @@ export interface Config {
     industries: IndustriesSelect<false> | IndustriesSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
     guides: GuidesSelect<false> | GuidesSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
     inquiries: InquiriesSelect<false> | InquiriesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -222,6 +224,10 @@ export interface Product {
    */
   featured?: boolean | null;
   sortOrder?: number | null;
+  /**
+   * Removes this product from the site. Untick to bring it back.
+   */
+  hidden?: boolean | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -286,6 +292,10 @@ export interface Category {
    * Lower numbers show first in menus.
    */
   sortOrder?: number | null;
+  /**
+   * Removes this category from the site. Untick to bring it back. Its products have their own switch.
+   */
+  hidden?: boolean | null;
   meta?: {
     title?: string | null;
     description?: string | null;
@@ -646,6 +656,65 @@ export interface Guide {
   _status?: ('draft' | 'published') | null;
 }
 /**
+ * Articles shown at /blog. "Draft" is only visible to you; "Published" is live on the website.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  /**
+   * Short summary shown on the blog page and at the top of the post.
+   */
+  excerpt: string;
+  image?: (number | null) | Media;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Buyer questions. These also appear in Google as FAQ structured data.
+   */
+  faqs?:
+    | {
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  relatedProducts?: (number | Product)[] | null;
+  /**
+   * Used in the page URL. Leave blank to generate from the title. Changing it on a live page breaks old links — add a redirect if you do.
+   */
+  slug?: string | null;
+  publishedAt?: string | null;
+  author?: string | null;
+  readTime?: string | null;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "inquiries".
  */
@@ -733,6 +802,10 @@ export interface Redirect {
       | ({
           relationTo: 'guides';
           value: number | Guide;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: number | Post;
         } | null);
     url?: string | null;
   };
@@ -782,6 +855,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'guides';
         value: number | Guide;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
       } | null)
     | ({
         relationTo: 'inquiries';
@@ -882,6 +959,7 @@ export interface ProductsSelect<T extends boolean = true> {
   availability?: T;
   featured?: T;
   sortOrder?: T;
+  hidden?: T;
   meta?:
     | T
     | {
@@ -912,6 +990,7 @@ export interface CategoriesSelect<T extends boolean = true> {
       };
   slug?: T;
   sortOrder?: T;
+  hidden?: T;
   meta?:
     | T
     | {
@@ -1104,6 +1183,38 @@ export interface GuidesSelect<T extends boolean = true> {
   slug?: T;
   publishedAt?: T;
   author?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  excerpt?: T;
+  image?: T;
+  content?: T;
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  relatedProducts?: T;
+  slug?: T;
+  publishedAt?: T;
+  author?: T;
+  readTime?: T;
   meta?:
     | T
     | {
@@ -1448,7 +1559,7 @@ export interface SiteSetting {
   address?: string | null;
   hours?: string | null;
   /**
-   * Requires an email adapter to be configured (see README).
+   * Every new quote request is emailed here. Requires RESEND_API_KEY (see README).
    */
   notificationEmail?: string | null;
   social?:
