@@ -204,7 +204,7 @@ export function QuoteFinder({
           <input type="hidden" name="industry" value={industry?.name ?? ''} />
           <input type="hidden" name="items" value={JSON.stringify(items)} />
           <div className="honeypot" aria-hidden="true">
-            <input name="company_website" tabIndex={-1} autoComplete="off" />
+            <input name="hp_check" tabIndex={-1} autoComplete="off" />
           </div>
           <div className="finder-fields">
             <input className="input" name="name" placeholder="Your name *" required autoComplete="name" aria-label="Your name" />

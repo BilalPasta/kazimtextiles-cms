@@ -12,7 +12,7 @@ export function QuoteForm({ productGroups, defaultProduct }: { productGroups: Pr
       <div className="honeypot" aria-hidden="true">
         <label>
           Leave this blank
-          <input name="company_website" tabIndex={-1} autoComplete="off" />
+          <input name="hp_check" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
       <div className="field">
