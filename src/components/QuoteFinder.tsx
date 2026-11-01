@@ -67,7 +67,7 @@ export function QuoteFinder({
     <div className="finder" id="quote-finder">
       <div className="finder-head">
         <div>
-          <p className="finder-title">{title || 'Get a quote in 60 seconds'}</p>
+          <p className="finder-title">{title || 'Get a wholesale quote'}</p>
           {subtitle && <p className="finder-sub">{subtitle}</p>}
         </div>
         <ol className="finder-steps" aria-label="Progress">

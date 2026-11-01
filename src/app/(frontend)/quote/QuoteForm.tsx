@@ -3,9 +3,9 @@
 import { useActionState } from 'react'
 import { submitQuote, type QuoteState } from './actions'
 
-type Option = { value: string; label: string }
+export type ProductGroup = { label: string; products: string[] }
 
-export function QuoteForm({ products, industries, defaultProduct, defaultIndustry }: { products: Option[]; industries: Option[]; defaultProduct?: string; defaultIndustry?: string }) {
+export function QuoteForm({ productGroups, defaultProduct }: { productGroups: ProductGroup[]; defaultProduct?: string }) {
   const [state, action, pending] = useActionState<QuoteState, FormData>(submitQuote, {})
   return (
     <form className="quote-form" action={action}>
@@ -14,30 +14,6 @@ export function QuoteForm({ products, industries, defaultProduct, defaultIndustr
           Leave this blank
           <input name="company_website" tabIndex={-1} autoComplete="off" />
         </label>
-      </div>
-      <div className="field">
-        <label htmlFor="q-product">Product</label>
-        <select id="q-product" name="product" defaultValue={defaultProduct ?? ''}>
-          <option value="">Choose a product (optional)</option>
-          {products.map((p) => (
-            <option key={p.value} value={p.label}>
-              {p.label}
-            </option>
-          ))}
-          <option value="Other / custom textile">Other / custom textile</option>
-        </select>
-      </div>
-      <div className="field">
-        <label htmlFor="q-industry">Your industry</label>
-        <select id="q-industry" name="industry" defaultValue={defaultIndustry ?? ''}>
-          <option value="">Choose (optional)</option>
-          {industries.map((i) => (
-            <option key={i.value} value={i.label}>
-              {i.label}
-            </option>
-          ))}
-          <option value="Other">Other</option>
-        </select>
       </div>
       <div className="field">
         <label htmlFor="q-name">Your name *</label>
@@ -56,32 +32,28 @@ export function QuoteForm({ products, industries, defaultProduct, defaultIndustr
         <input id="q-phone" type="tel" name="phone" autoComplete="tel" />
       </div>
       <div className="field">
+        <label htmlFor="q-product">Product</label>
+        <select id="q-product" name="product" defaultValue={defaultProduct ?? ''}>
+          <option value="">Choose a product</option>
+          {productGroups.map((group) => (
+            <optgroup key={group.label} label={group.label}>
+              {group.products.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+          <option value="Other / custom textile">Other / custom textile</option>
+        </select>
+      </div>
+      <div className="field">
         <label htmlFor="q-quantity">Quantity</label>
         <input id="q-quantity" name="quantity" placeholder="e.g. 5,000 pcs or 200 dozen" />
       </div>
-      <div className="field">
-        <label htmlFor="q-destination">Delivery city / ZIP / country</label>
-        <input id="q-destination" name="destination" />
-      </div>
-      <div className="field">
-        <label htmlFor="q-size">Size / dimensions</label>
-        <input id="q-size" name="size" placeholder='e.g. 16" x 19"' />
-      </div>
-      <div className="field">
-        <label htmlFor="q-weight">GSM / weight</label>
-        <input id="q-weight" name="weight" placeholder="e.g. 450 GSM or 2 lb/dz" />
-      </div>
-      <div className="field">
-        <label htmlFor="q-packing">Packing</label>
-        <input id="q-packing" name="packing" placeholder="e.g. 12 per bundle, 300 per carton" />
-      </div>
-      <div className="field">
-        <label htmlFor="q-date">Needed by</label>
-        <input id="q-date" name="targetDate" placeholder="e.g. March 2027" />
-      </div>
       <div className="field full">
-        <label htmlFor="q-details">Requirements *</label>
-        <textarea id="q-details" name="details" required placeholder="Fabric, color, logo / branding, use case, sample needs, anything else…" />
+        <label htmlFor="q-details">Message (optional)</label>
+        <textarea id="q-details" name="details" placeholder="Anything else we should know?" />
       </div>
       <div className="field full">
         <label className="consent">

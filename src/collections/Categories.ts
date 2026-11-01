@@ -39,5 +39,11 @@ export const Categories: CollectionConfig = {
       defaultValue: 100,
       admin: { position: 'sidebar', description: 'Lower numbers show first in menus.' },
     },
+    {
+      name: 'hidden',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: { position: 'sidebar', description: 'Removes this category from the site. Untick to bring it back. Its products have their own switch.' },
+    },
   ],
 }

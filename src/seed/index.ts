@@ -204,7 +204,7 @@ async function run() {
     data: {
       ...homepage,
       hero: { ...homepage.hero, image: img('hero-textiles.webp') },
-      finder: { enabled: true, title: 'Get a quote in 60 seconds', subtitle: 'Pick your business, choose products, tell us how many.' },
+      finder: { enabled: true, title: 'Get a wholesale quote', subtitle: "Pick your business, choose products, tell us how many. We'll get back to you as soon as we can." },
       featuredProducts: [],
     } as never,
     context: ctx(),

@@ -39,8 +39,8 @@ export const Homepage: GlobalConfig = {
       admin: { description: 'The step-by-step quote widget at the top of the homepage.' },
       fields: [
         { name: 'enabled', type: 'checkbox', defaultValue: true, admin: { description: 'Untick to show the hero image instead.' } },
-        { name: 'title', type: 'text', defaultValue: 'Get a quote in 60 seconds' },
-        { name: 'subtitle', type: 'text', defaultValue: 'Pick your business, choose products, tell us how many.' },
+        { name: 'title', type: 'text', defaultValue: 'Get a wholesale quote' },
+        { name: 'subtitle', type: 'text', defaultValue: "Pick your business, choose products, tell us how many. We'll get back to you as soon as we can." },
       ],
     },
     {

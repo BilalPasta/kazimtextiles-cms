@@ -16,6 +16,7 @@ import { Products } from './collections/Products'
 import { Industries } from './collections/Industries'
 import { Pages } from './collections/Pages'
 import { Guides } from './collections/Guides'
+import { Posts } from './collections/Posts'
 import { Inquiries } from './collections/Inquiries'
 import { SiteSettings } from './globals/SiteSettings'
 import { Navigation } from './globals/Navigation'
@@ -39,7 +40,7 @@ export default buildConfig({
     livePreview: {
       url: ({ data, collectionConfig, globalConfig }) =>
         `${serverUrl}${globalConfig?.slug === 'homepage' ? '/' : docPath(collectionConfig?.slug, data)}`,
-      collections: ['products', 'categories', 'industries', 'pages', 'guides'],
+      collections: ['products', 'categories', 'industries', 'pages', 'guides', 'posts'],
       globals: ['homepage'],
       breakpoints: [
         { label: 'Mobile', name: 'mobile', width: 390, height: 844 },
@@ -58,7 +59,7 @@ export default buildConfig({
         defaultFromName: process.env.RESEND_FROM_NAME || 'Kazim Textiles',
       })
     : undefined,
-  collections: [Products, Categories, Industries, Pages, Guides, Inquiries, Media, Users],
+  collections: [Products, Categories, Industries, Pages, Guides, Posts, Inquiries, Media, Users],
   globals: [Homepage, SiteSettings, Navigation],
   plugins: [
     // Vercel's filesystem is read-only, so uploads go to Vercel Blob whenever a token is configured.
@@ -69,7 +70,7 @@ export default buildConfig({
       token: process.env.BLOB_READ_WRITE_TOKEN,
     }),
     seoPlugin({
-      collections: ['products', 'categories', 'industries', 'pages', 'guides'],
+      collections: ['products', 'categories', 'industries', 'pages', 'guides', 'posts'],
       globals: ['homepage'],
       uploadsCollection: 'media',
       tabbedUI: true,
@@ -84,7 +85,7 @@ export default buildConfig({
       generateURL: ({ doc, collectionSlug }) => `${serverUrl}${docPath(collectionSlug, doc)}`,
     }),
     redirectsPlugin({
-      collections: ['pages', 'products', 'categories', 'industries', 'guides'],
+      collections: ['pages', 'products', 'categories', 'industries', 'guides', 'posts'],
       overrides: {
         admin: { group: 'Settings' },
         hooks: { afterChange: [revalidateAfterChange] },

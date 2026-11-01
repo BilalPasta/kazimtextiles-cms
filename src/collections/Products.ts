@@ -96,5 +96,11 @@ export const Products: CollectionConfig = {
     },
     { name: 'featured', type: 'checkbox', admin: { position: 'sidebar', description: 'Show on the homepage.' } },
     { name: 'sortOrder', type: 'number', defaultValue: 100, admin: { position: 'sidebar' } },
+    {
+      name: 'hidden',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: { position: 'sidebar', description: 'Removes this product from the site. Untick to bring it back.' },
+    },
   ],
 }

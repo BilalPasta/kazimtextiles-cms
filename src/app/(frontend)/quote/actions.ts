@@ -17,20 +17,17 @@ export async function submitQuote(_prev: QuoteState, fd: FormData): Promise<Quot
     company: str(fd, 'company', 160),
     email: str(fd, 'email', 200),
     phone: str(fd, 'phone', 60),
-    industry: str(fd, 'industry', 120),
     product: str(fd, 'product', 200),
     quantity: str(fd, 'quantity', 120),
-    destination: str(fd, 'destination', 200),
-    size: str(fd, 'size', 200),
-    weight: str(fd, 'weight', 120),
-    packing: str(fd, 'packing', 200),
-    targetDate: str(fd, 'targetDate', 120),
     details: str(fd, 'details', 5000),
     sourcePage: (await headers()).get('referer')?.slice(0, 300) ?? '',
   }
 
-  if (!data.name || !data.company || !data.email || !data.details) {
-    return { error: 'Please fill in your name, company, email and requirements.' }
+  if (!data.name || !data.company || !data.email) {
+    return { error: 'Please fill in your name, company and email.' }
+  }
+  if (!data.product && !data.details) {
+    return { error: 'Please choose a product or add a message.' }
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
     return { error: 'Please enter a valid email address.' }
