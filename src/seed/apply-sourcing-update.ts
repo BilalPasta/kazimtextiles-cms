@@ -15,6 +15,7 @@ const imageFixes: Record<string, string> = {
   'terry-wiping-towels': 'towels_alt-12.webp',
   'washcloths': 'towels_alt-14.webp',
   'bath-mats': 'towels-32.webp',
+  'medical-scrub-sets': 'medical-scrub-sets.webp',
 }
 
 const ctx = () => ({ disableRevalidate: true })
