@@ -29,7 +29,7 @@ export default async function ProductsPage() {
     return {
       id: p.id,
       category: cat?.slug ?? '',
-      search: [p.name, p.shortDescription, p.application, p.searchTerms, cat?.name, p.customization?.map((c) => c.option).join(' ')].join(' '),
+      search: [p.name, p.shortDescription, p.application, p.searchTerms, p.customization?.map((c) => c.option).join(' ')].join(' '),
       card: <ProductCard product={p} headingLevel={2} />,
     }
   })

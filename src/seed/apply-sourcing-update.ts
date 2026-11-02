@@ -152,7 +152,7 @@ export async function applySourcingUpdate(payload: Payload, log: (msg: string) =
         faqs: copy.faqs,
         categories: copy.categories.map(categoryId),
         featuredProducts: slug === 'wholesale-distributors' ? homepageFeatured.map((s) => productIds[s]) : [],
-        meta: { title: `${copy.heading} | Kazim Textiles`, description: copy.summary.slice(0, 160) },
+        meta: { title: copy.metaTitle ?? `${copy.heading} | Kazim Textiles`, description: copy.summary.slice(0, 160) },
       },
       depth: 0,
       context: ctx(),
@@ -182,6 +182,7 @@ export async function applySourcingUpdate(payload: Payload, log: (msg: string) =
       id: doc.id,
       data: {
         ...(copy.excerpt ? { excerpt: copy.excerpt } : {}),
+        ...(copy.metaTitle ? { meta: { ...(doc as { meta?: object }).meta, title: copy.metaTitle } } : {}),
         content: copy.content as never,
         relatedProducts: copy.relatedProducts.map((s) => productIds[s]).filter(Boolean),
         _status: 'published',
