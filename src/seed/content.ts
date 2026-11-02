@@ -40,6 +40,11 @@ export const imageAlt: Record<string, string> = {
   'uniforms-32.webp': 'Folded burgundy, green and ivory cloth napkins',
   'uniforms-33.webp': 'Quilted placemats with embroidered leaf pattern',
   'uniforms-34.webp': 'Ivory table runner with hemstitch detail',
+  'bed-sheets.webp': 'Hotel bed made up with crisp white sheets and white pillows',
+  'pillowcases.webp': 'White pillow in a plain white pillowcase on white bedding',
+  'hospital-bed-sheets.webp': 'Hospital room with adjustable beds made up with sheets and pillows',
+  'bath-mats.webp': 'Close-up of a white cotton terry bath mat with a raised pebble texture',
+  'medical-scrub-sets.webp': 'Woman in navy and man in charcoal V-neck scrub tops with matching jogger-style cargo scrub pants',
 }
 
 /** Better image choices than the original catalog for some products. */
