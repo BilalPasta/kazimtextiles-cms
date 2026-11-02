@@ -8,7 +8,7 @@ import { buildMetadata } from '@/lib/seo'
 
 const title = 'Wholesale Textiles by Industry'
 const intro =
-  'Hotels, restaurants, hospitals, cleaning companies, laundries and distributors each buy textiles differently. Find the products, specifications and order sizes that fit your business.'
+  'Hotels, restaurants, healthcare facilities, cleaning companies, laundries and distributors each buy textiles differently. Find the core products and specifications that fit your business.'
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({ title, description: intro, path: '/industries' })
@@ -18,7 +18,7 @@ export default async function IndustriesPage() {
   const industries = await getIndustries()
   return (
     <>
-      <PageHead crumbs={[{ label: 'Industries' }]} eyebrow="Who we supply" title={title} intro={intro} />
+      <PageHead crumbs={[{ label: 'Industries' }]} eyebrow="Industries served" title={title} intro={intro} />
       <section className="section">
         <div className="container">
           <div className="industry-grid">

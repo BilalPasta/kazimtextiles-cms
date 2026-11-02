@@ -129,7 +129,7 @@ export default async function HomePage() {
             </div>
             <div className="horizontal-links">
               <Link href="/products">Browse all {products.length} products →</Link>
-              <Link href="/private-label-manufacturing">Custom & private label →</Link>
+              <Link href="/custom-textile-sourcing">Custom textile sourcing →</Link>
             </div>
           </div>
         </section>
@@ -210,7 +210,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      <Faqs items={home.faqs} heading="Wholesale buying questions" />
+      <Faqs items={home.faqs} heading="Frequently asked questions" />
       <CtaBand {...home.ctaBand} />
     </>
   )

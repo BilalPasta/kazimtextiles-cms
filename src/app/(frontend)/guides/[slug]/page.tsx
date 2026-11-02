@@ -7,6 +7,7 @@ import { PageHead } from '@/components/PageHead'
 import { ProductCard } from '@/components/ProductCard'
 import { RichText } from '@/components/RichText'
 import { getGuide, getGuides, getSiteSettings, populatedList } from '@/lib/payload'
+import { followRedirect } from '@/lib/redirects'
 import { buildMetadata, mediaUrl } from '@/lib/seo'
 import { absoluteUrl } from '@/lib/urls'
 import type { Product } from '@/payload-types'
@@ -24,8 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function GuidePage({ params }: Props) {
-  const guide = await getGuide((await params).slug)
-  if (!guide) notFound()
+  const { slug } = await params
+  const guide = await getGuide(slug)
+  if (!guide) {
+    await followRedirect(`/guides/${slug}`)
+    notFound()
+  }
   const settings = await getSiteSettings()
   const related = populatedList<Product>(guide.relatedProducts)
   const date = guide.publishedAt ? new Date(guide.publishedAt) : null

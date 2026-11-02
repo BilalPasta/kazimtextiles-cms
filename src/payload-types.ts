@@ -158,7 +158,7 @@ export interface Product {
    */
   shortDescription: string;
   /**
-   * e.g. "Back-of-house cleaning and food prep"
+   * Comma-separated, e.g. "Restaurants, bars, catering kitchens"
    */
   application?: string | null;
   image: number | Media;
@@ -189,7 +189,7 @@ export interface Product {
       }[]
     | null;
   /**
-   * e.g. Custom sizes, Logo embroidery, Private-label packaging
+   * Styles and variants offered on this page, e.g. "Bib aprons", "Waist aprons". Only list options the supplier has confirmed or mark them as subject to quotation.
    */
   customization?:
     | {
@@ -199,6 +199,12 @@ export interface Product {
     | null;
   moq?: string | null;
   leadTime?: string | null;
+  packaging?: string | null;
+  customizationStatus?: string | null;
+  /**
+   * Other names buyers search for, e.g. "bar mops, restaurant towels". Used by catalog search only; not shown.
+   */
+  searchTerms?: string | null;
   /**
    * Shown on product cards, the product page and the Quote Finder. Leave blank to hide pricing.
    */
@@ -726,10 +732,14 @@ export interface Inquiry {
   company: string;
   email?: string | null;
   phone?: string | null;
+  inquiryType?: ('pricing' | 'samples' | 'custom-sourcing') | null;
   industry?: string | null;
   product?: string | null;
   quantity?: string | null;
+  quantityUnit?: string | null;
+  zip?: string | null;
   destination?: string | null;
+  material?: string | null;
   size?: string | null;
   weight?: string | null;
   packing?: string | null;
@@ -742,7 +752,7 @@ export interface Inquiry {
       }[]
     | null;
   details?: string | null;
-  source?: ('quote-form' | 'finder') | null;
+  source?: ('quote-form' | 'finder' | 'custom-sourcing') | null;
   sourcePage?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -946,6 +956,9 @@ export interface ProductsSelect<T extends boolean = true> {
       };
   moq?: T;
   leadTime?: T;
+  packaging?: T;
+  customizationStatus?: T;
+  searchTerms?: T;
   priceGuide?: T;
   faqs?:
     | T
@@ -1237,10 +1250,14 @@ export interface InquiriesSelect<T extends boolean = true> {
   company?: T;
   email?: T;
   phone?: T;
+  inquiryType?: T;
   industry?: T;
   product?: T;
   quantity?: T;
+  quantityUnit?: T;
+  zip?: T;
   destination?: T;
+  material?: T;
   size?: T;
   weight?: T;
   packing?: T;

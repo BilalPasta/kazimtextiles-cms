@@ -1,13 +1,14 @@
+import { whatsappHref } from '@/lib/contact'
 import { getSiteSettings } from '@/lib/payload'
 
 export async function WhatsAppButton() {
   const { whatsapp } = await getSiteSettings()
-  const digits = whatsapp?.replace(/\D/g, '')
-  if (!digits) return null
+  const href = whatsappHref(whatsapp, 'Hello Kazim Textiles, I would like a wholesale quote.')
+  if (!href) return null
   return (
     <a
       className="wa-float"
-      href={`https://wa.me/${digits}?text=${encodeURIComponent('Hello Kazim Textiles, I would like a wholesale quote.')}`}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"

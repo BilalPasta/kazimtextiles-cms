@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
+import { telHref, whatsappHref } from '@/lib/contact'
 
 type NavLink = { label: string; url: string }
 
@@ -50,10 +51,10 @@ export function MobileMenu({
   }, [open])
 
   // Plain header links that aren't covered by the two expandable sections.
-  const plain = links.filter((l) => !['/products', '/industries'].includes(l.url))
+  const plain = links.filter((l) => !['/products', '/industries', '/contact'].includes(l.url))
   const isActive = (url: string) => (url === '/' ? pathname === '/' : pathname.startsWith(url))
-  const phone = contact.phone?.replace(/[^+\d]/g, '')
-  const wa = contact.whatsapp?.replace(/\D/g, '')
+  const phone = telHref(contact.phone)
+  const wa = whatsappHref(contact.whatsapp)
 
   const group = (key: 'products' | 'industries', label: string, items: NavLink[], allUrl: string, allLabel: string) => (
     <li className={`mnav-group${section === key ? ' open' : ''}`}>
@@ -132,16 +133,24 @@ export function MobileMenu({
                 </Link>
                 {(phone || wa || contact.email) && (
                   <div className="mnav-contact">
-                    {phone && <a href={`tel:${phone}`}>Call</a>}
+                    {phone && (
+                      <a href={phone} data-track="phone_click">
+                        Call {contact.phone}
+                      </a>
+                    )}
                     {wa && (
-                      <a href={`https://wa.me/${wa}`} target="_blank" rel="noopener noreferrer">
+                      <a href={wa} target="_blank" rel="noopener noreferrer">
                         WhatsApp
                       </a>
                     )}
-                    {contact.email && <a href={`mailto:${contact.email}`}>Email</a>}
+                    {contact.email && (
+                      <a href={`mailto:${contact.email}`} data-track="email_click">
+                        Email
+                      </a>
+                    )}
                   </div>
                 )}
-                <p className="mnav-note">Wholesale textiles, made to your order.</p>
+                <p className="mnav-note">Wholesale textile sourcing & supply.</p>
               </div>
             </div>
           </div>,

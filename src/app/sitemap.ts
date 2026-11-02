@@ -16,8 +16,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     entry('/products', null, 0.9),
     entry('/industries', null, 0.9),
     entry('/guides', null, 0.6),
-    entry('/blog', null, 0.6),
+    // The blog index is listed only once it has articles.
+    ...(posts.length ? [entry('/blog', null, 0.6)] : []),
     entry('/quote', null, 0.8),
+    entry('/custom-textile-sourcing', null, 0.7),
     ...categories.map((c) => entry(`/categories/${c.slug}`, c.updatedAt, 0.9)),
     ...industries.map((i) => entry(`/industries/${i.slug}`, i.updatedAt, 0.8)),
     ...products.map((p) => entry(`/products/${p.slug}`, p.updatedAt, 0.7)),
