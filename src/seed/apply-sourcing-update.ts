@@ -14,7 +14,10 @@ const imageFixes: Record<string, string> = {
   'kitchen-towels': 'towels-31.webp',
   'terry-wiping-towels': 'towels_alt-12.webp',
   'washcloths': 'towels_alt-14.webp',
-  'bath-mats': 'towels-32.webp',
+  'bath-mats': 'bath-mats.webp',
+  'bed-sheets': 'bed-sheets.webp',
+  'pillowcases': 'pillowcases.webp',
+  'hospital-bed-sheets': 'hospital-bed-sheets.webp',
   'medical-scrub-sets': 'medical-scrub-sets.webp',
 }
 
@@ -37,7 +40,14 @@ export async function applySourcingUpdate(payload: Payload, log: (msg: string) =
     return value
   }
   const categoryId = (slug: string) => need(categories.find((c) => c.slug === slug), `category ${slug}`).id
-  const mediaId = (file: string) => need(media.find((m) => m.filename === file), `media ${file}`).id
+  // Uploads can be stored as "name-1.webp" when the name was taken; prefer the exact name, else the newest variant.
+  const mediaId = (file: string) => {
+    const dot = file.lastIndexOf('.')
+    const variant = new RegExp(`^${file.slice(0, dot).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}-\\d+\\${file.slice(dot)}$`)
+    const exact = media.find((m) => m.filename === file)
+    const newest = media.filter((m) => variant.test(m.filename ?? '')).sort((a, b) => b.id - a.id)[0]
+    return need(exact ?? newest, `media ${file}`).id
+  }
 
   // ── Categories: order, copy and SEO for the five public categories ─────────
   for (const [i, slug] of categoryOrder.entries()) {
