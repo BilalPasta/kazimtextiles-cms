@@ -80,7 +80,7 @@ h4,.h4{font-size:16px;font-weight:700;letter-spacing:-.01em}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
 .hero-photo{position:relative}
 .hero-photo img{width:100%;aspect-ratio:4/3.4;object-fit:cover;border-radius:20px;display:block;box-shadow:var(--shadow-lg)}
-.hero-photo:after{content:'Made to your specification';position:absolute;left:-22px;bottom:28px;background:#fff;color:var(--ink);font:700 14px var(--font-display),sans-serif;padding:14px 18px 14px 44px;border-radius:12px;box-shadow:var(--shadow-lg);background-image:radial-gradient(circle at 22px 50%,var(--accent) 0 6px,transparent 7px)}
+.hero-photo:after{content:'Quoted to your specification';position:absolute;left:-22px;bottom:28px;background:#fff;color:var(--ink);font:700 14px var(--font-display),sans-serif;padding:14px 18px 14px 44px;border-radius:12px;box-shadow:var(--shadow-lg);background-image:radial-gradient(circle at 22px 50%,var(--accent) 0 6px,transparent 7px)}
 
 /* Trust strip */
 .trust{background:#fff;border-bottom:1px solid var(--line)}
@@ -118,9 +118,9 @@ h4,.h4{font-size:16px;font-weight:700;letter-spacing:-.01em}
 .product-card .photo{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;transition:transform .5s}
 .product-card:hover .photo{transform:scale(1.04)}
 .product-card .copy{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
-.product-card h3{font-size:18px;margin:2px 0 8px}
-.product-card h3 a:after{content:'';position:absolute;inset:0}
-.product-card .copy p{font-size:14px;color:var(--muted);line-height:1.55;flex:1;margin-bottom:16px}
+.product-card .card-title{font-size:18px;margin:2px 0 8px;line-height:1.3;min-height:2.6em}
+.product-card .card-title a:after{content:'';position:absolute;inset:0}
+.product-card .copy p{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .tagline{display:flex;gap:6px;flex-wrap:wrap;min-height:18px}
 .overline{font:700 11px var(--font-display),sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .card-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
@@ -343,7 +343,7 @@ h4,.h4{font-size:16px;font-weight:700;letter-spacing:-.01em}
   .category-grid,.industry-grid,.industry-grid.four,.why-grid,.internal-grid,.needs-grid,.guide-grid,.trust-grid{grid-template-columns:1fr}
   .product-grid{grid-template-columns:1fr 1fr;gap:12px}
   .product-card .copy{padding:14px}
-  .product-card h3{font-size:15.5px}
+  .product-card .card-title{font-size:15.5px;min-height:0}
   .product-card .copy p{display:none}
   .card-foot{padding-top:10px}
   .card-foot .tag{display:none}
@@ -467,3 +467,40 @@ h4,.h4{font-size:16px;font-weight:700;letter-spacing:-.01em}
   .spec th,.spec td{padding:11px 6px;font-size:14px}
   .hero-actions .btn{flex:1 1 auto}
 }
+
+/* Sourcing & catalog update (2026-11) */
+.card-foot .btn{position:relative;z-index:1;padding:8px 14px;font-size:12.5px;background:#fff;border-color:var(--line-2);color:var(--ink);box-shadow:none;min-height:36px}
+.card-foot .btn:hover{border-color:var(--accent);color:var(--accent-dark);background:#fff}
+.product-figure{margin:0}
+.product-figure figcaption{font-size:12.5px;color:var(--muted);margin-top:8px}
+.product-info .lead{font-size:17px;color:var(--text)}
+.small{font-size:13px}
+.stack{display:grid;gap:24px;align-content:start}
+.supply-panel{display:grid;grid-template-columns:1.4fr .6fr;gap:28px;margin-top:24px;align-items:start}
+.supply-actions{display:grid;gap:10px}
+.terms-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;margin:18px 0}
+.terms-list dt{font:700 11px var(--font-display),sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.terms-list dd{margin:3px 0 0;font-weight:600;color:var(--ink)}
+.catalog-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px;padding:0;list-style:none}
+.catalog-filters button{min-height:40px;border:1.5px solid var(--line-2);background:#fff;border-radius:999px;padding:8px 14px;font:600 13.5px var(--font-display),sans-serif;color:var(--navy-3);cursor:pointer}
+.catalog-filters button[aria-pressed=true]{background:var(--navy);border-color:var(--navy);color:#fff}
+.catalog-filters button:hover{border-color:var(--accent)}
+.count-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+.count-row .count{margin:0}
+.linkbtn{background:none;border:0;padding:6px 0;color:var(--accent-dark);font:700 14px var(--font-display),sans-serif;text-decoration:underline;cursor:pointer;min-height:32px}
+.field .hint{display:block;font-size:12.5px;color:var(--muted);margin-top:5px}
+.field .field-error{display:block;font-size:13px;color:#b42318;font-weight:600;margin-top:5px}
+.field [aria-invalid=true]{border-color:#b42318}
+.req{color:#b42318}
+.radio-row{display:flex;flex-wrap:wrap;gap:10px;border:0;margin:0;padding:0}
+.radio-row legend{font:600 13.5px var(--font-display),sans-serif;color:var(--ink);margin-bottom:6px;padding:0}
+.radio-row label{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line-2);border-radius:999px;padding:9px 14px;font-weight:600;font-size:14px;cursor:pointer;min-height:42px}
+.radio-row label:has(input:checked){border-color:var(--navy);background:var(--tint)}
+.qty-row{display:grid;grid-template-columns:1fr 140px;gap:10px}
+.form-success{color:#05603a;background:#ecfdf3;border-radius:8px;padding:10px 12px;font-size:14px;font-weight:600}
+.sourcing-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:20px}
+.sourcing-list .info-card ul{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px}
+.contact-details{display:grid;gap:6px;margin-top:6px}
+.contact-details a{color:var(--navy-3);font-weight:700;font-size:17px}
+@media (max-width:860px){.supply-panel{grid-template-columns:1fr}}
+@media (max-width:560px){.terms-list{grid-template-columns:1fr}.qty-row{grid-template-columns:1fr 120px}.catalog-filters{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch}.catalog-filters button{white-space:nowrap}}

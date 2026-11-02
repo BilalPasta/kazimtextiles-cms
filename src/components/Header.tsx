@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getCategories, getIndustries, getNavigation, getSiteSettings } from '@/lib/payload'
+import { telHref } from '@/lib/contact'
 import { Brand } from './Brand'
 import { MobileMenu } from './MobileMenu'
 
@@ -14,8 +15,14 @@ export async function Header() {
             <span>{settings.topbarLeft}</span>
             <span className="topbar-right">
               {settings.topbarRight}
-              {settings.phone && <a href={`tel:${settings.phone.replace(/[^+\d]/g, '')}`}>{settings.phone}</a>}
-              {settings.email && <a href={`mailto:${settings.email}`}>{settings.email}</a>}
+              {settings.phone && <a href={telHref(settings.phone)} data-track="phone_click">
+                  {settings.phone}
+                </a>}
+              {settings.email && (
+                <a href={`mailto:${settings.email}`} data-track="email_click">
+                  {settings.email}
+                </a>
+              )}
             </span>
           </div>
         </div>

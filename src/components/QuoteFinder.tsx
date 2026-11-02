@@ -3,12 +3,12 @@
 import Image from 'next/image'
 import { useActionState, useMemo, useState } from 'react'
 import { submitFinderQuote, type FinderState } from '@/app/(frontend)/quote/actions'
+import { quantityUnits as UNITS } from '@/app/(frontend)/quote/options'
 import { IndustryIcon } from './IndustryIcon'
 
 export type FinderIndustry = { slug: string; name: string; icon?: string | null; categories: string[] }
 export type FinderProduct = { slug: string; name: string; thumb?: string | null; category: string; categorySlug: string; industries: string[]; priceGuide?: string | null; featured?: boolean | null }
 
-const UNITS = ['pieces', 'dozen', 'lbs', 'cartons']
 const STEPS = ['Business', 'Products', 'Quantity', 'Contact']
 
 /**
@@ -91,7 +91,7 @@ export function QuoteFinder({
             ))}
           </div>
           <button type="button" className="finder-link" onClick={() => pick(null)}>
-            Something else? Browse all products →
+            Other business? Browse all products →
           </button>
         </div>
       )}
@@ -209,13 +209,13 @@ export function QuoteFinder({
           <div className="finder-fields">
             <input className="input" name="name" placeholder="Your name *" required autoComplete="name" aria-label="Your name" />
             <input className="input" name="company" placeholder="Company" autoComplete="organization" aria-label="Company" />
-            <input className="input full" name="contact" placeholder="Email or WhatsApp / phone *" required autoComplete="email" aria-label="Email or phone" />
-            <input className="input full" name="destination" placeholder="Delivery city / country" aria-label="Delivery location" />
+            <input className="input full" name="contact" placeholder="Business email or phone *" required autoComplete="email" aria-label="Business email or phone" />
+            <input className="input full" name="destination" placeholder="Delivery ZIP code" inputMode="numeric" autoComplete="postal-code" aria-label="Delivery ZIP code" />
             <textarea
               className="input full"
               name="details"
               rows={selected.length ? 2 : 4}
-              placeholder={selected.length ? 'Anything else? Size, color, logo… (optional)' : 'Describe what you need — product, size, fabric, quantity *'}
+              placeholder={selected.length ? 'Anything else? Size, material, color… (optional)' : 'Describe what you need — product, size, material, quantity *'}
               aria-label="Details"
               value={details}
               onChange={(e) => setDetails(e.target.value)}
@@ -230,7 +230,7 @@ export function QuoteFinder({
           <button className="btn gold finder-submit" type="submit" disabled={pending}>
             {pending ? 'Sending…' : 'Get my quote →'}
           </button>
-          <p className="finder-hint">Free, no obligation. We reply with options and pricing.</p>
+          <p className="finder-hint">No obligation. Pricing, MOQ and lead time are confirmed in a written quotation.</p>
         </form>
       )}
     </div>

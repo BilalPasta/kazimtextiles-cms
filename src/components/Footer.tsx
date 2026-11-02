@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getNavigation, getSiteSettings } from '@/lib/payload'
+import { telHref } from '@/lib/contact'
 import { Brand } from './Brand'
 
 export async function Footer() {
@@ -12,8 +13,16 @@ export async function Footer() {
             <Brand settings={settings} tone="light" />
             {settings.footerAbout && <p>{settings.footerAbout}</p>}
             <address className="footer-contact">
-              {settings.email && <a href={`mailto:${settings.email}`}>{settings.email}</a>}
-              {settings.phone && <a href={`tel:${settings.phone.replace(/[^+\d]/g, '')}`}>{settings.phone}</a>}
+              {settings.email && (
+                <a href={`mailto:${settings.email}`} data-track="email_click">
+                  {settings.email}
+                </a>
+              )}
+              {settings.phone && (
+                <a href={telHref(settings.phone)} data-track="phone_click">
+                  {settings.phone}
+                </a>
+              )}
               {settings.address && <span>{settings.address}</span>}
               {settings.hours && <span>{settings.hours}</span>}
             </address>

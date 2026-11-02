@@ -6,6 +6,8 @@ import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { JsonLd } from '@/components/JsonLd'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
+import { Analytics } from '@/components/Analytics'
+import { phoneE164 } from '@/lib/contact'
 import { getSiteSettings } from '@/lib/payload'
 import { allowIndexing, mediaUrl } from '@/lib/seo'
 import { absoluteUrl, serverUrl } from '@/lib/urls'
@@ -30,6 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function FrontendLayout({ children }: { children: ReactNode }) {
   const settings = await getSiteSettings()
   const gaId = settings.googleAnalyticsId
+  const telephone = phoneE164(settings.phone) ?? undefined
   return (
     <html lang="en" className={`${body.variable} ${display.variable}`}>
       <body>
@@ -40,6 +43,7 @@ export default async function FrontendLayout({ children }: { children: ReactNode
         <main id="main">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Analytics enabled={Boolean(gaId)} />
         <JsonLd
           data={{
             '@context': 'https://schema.org',
@@ -50,11 +54,11 @@ export default async function FrontendLayout({ children }: { children: ReactNode
             description: settings.defaultDescription || undefined,
             logo: absoluteUrl(mediaUrl(settings.logo) || '/brand/icon-512-v2.png'),
             email: settings.email || undefined,
-            telephone: settings.phone || undefined,
+            telephone,
             address: settings.address || undefined,
             sameAs: settings.social?.map((s) => s.url),
             contactPoint: settings.email || settings.phone
-              ? { '@type': 'ContactPoint', contactType: 'sales', email: settings.email || undefined, telephone: settings.phone || undefined }
+              ? { '@type': 'ContactPoint', contactType: 'sales', email: settings.email || undefined, telephone, areaServed: 'US', availableLanguage: 'English' }
               : undefined,
           }}
         />

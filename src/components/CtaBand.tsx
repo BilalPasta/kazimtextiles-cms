@@ -37,12 +37,12 @@ export function CtaBand({
 export function DefaultCta() {
   return (
     <CtaBand
-      eyebrow="Made to your specification"
-      heading="Tell us what you need. We'll quote it."
-      text="Share the product, size, fabric, quantity and delivery location. We'll come back with options, samples and a written quotation."
+      eyebrow="Wholesale inquiries"
+      heading="Share your requirements. We'll prepare a quote."
+      text="Tell us the product, quantity, specifications and delivery ZIP code. We review supplier options and confirm pricing, MOQ and lead time in a written quotation."
       buttons={[
         { label: 'Request a quote', url: '/quote' },
-        { label: 'Browse products', url: '/products' },
+        { label: 'Custom sourcing', url: '/custom-textile-sourcing' },
       ]}
     />
   )

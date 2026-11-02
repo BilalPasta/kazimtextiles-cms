@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { CatalogBrowser } from '@/components/CatalogBrowser'
 import { DefaultCta } from '@/components/CtaBand'
 import { JsonLd } from '@/components/JsonLd'
@@ -9,39 +10,44 @@ import { buildMetadata } from '@/lib/seo'
 import { absoluteUrl } from '@/lib/urls'
 import type { Category } from '@/payload-types'
 
-const metadata_title = 'Wholesale Textile Products Catalog'
+const title = 'Wholesale Commercial Textiles Catalog'
+const description =
+  'Shop towels, bar mops, flour sack towels, kitchen towels, napkins, hotel towels, sheets and healthcare textiles, sourced for U.S. wholesale buyers and quoted to specification.'
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildMetadata({
-    title: metadata_title,
-    description:
-      'Browse wholesale kitchen towels, shop towels, restaurant linens, hotel towels, hospital textiles, uniforms and custom textiles — all made to order for business buyers.',
-    path: '/products',
-  })
+  return buildMetadata({ title, description, path: '/products' })
 }
 
 export default async function ProductsPage() {
   const [products, categories] = await Promise.all([getProducts(), getCategories()])
-  const items = products.map((p) => {
+  const order = new Map(categories.map((c, i) => [c.id, i]))
+  const sorted = [...products].sort(
+    (a, b) => (order.get((a.category as Category | null)?.id ?? 0) ?? 99) - (order.get((b.category as Category | null)?.id ?? 0) ?? 99),
+  )
+  const items = sorted.map((p) => {
     const cat = typeof p.category === 'object' ? (p.category as Category) : null
     return {
       id: p.id,
       category: cat?.slug ?? '',
-      search: [p.name, p.shortDescription, p.application, cat?.name].join(' ').toLowerCase(),
-      card: <ProductCard product={p} />,
+      search: [p.name, p.shortDescription, p.application, p.searchTerms, cat?.name, p.customization?.map((c) => c.option).join(' ')].join(' '),
+      card: <ProductCard product={p} headingLevel={2} />,
     }
   })
   return (
     <>
       <PageHead
         crumbs={[{ label: 'Products' }]}
-        eyebrow="Wholesale catalog"
-        title={metadata_title}
-        intro="Every product is produced to your order: size, fabric, weight, color, branding and packing. Use the catalog as a starting point and send us your specification."
+        eyebrow={`${categories.length} product categories`}
+        title={title}
+        intro="Core wholesale products for foodservice, cleaning, hospitality and healthcare buyers. Specifications, MOQ and lead times are confirmed with each supplier quotation."
       />
       <section className="section">
         <div className="container">
           <CatalogBrowser items={items} categories={categories.map((c) => ({ slug: c.slug!, name: c.name }))} />
+          <p className="notice">
+            Looking for something outside the core catalog, such as placemats, pool towels, bathrobes or lab coats?{' '}
+            <Link href="/custom-textile-sourcing">Submit a custom sourcing inquiry →</Link>
+          </p>
         </div>
       </section>
       <DefaultCta />
@@ -49,12 +55,12 @@ export default async function ProductsPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
-          name: metadata_title,
+          name: title,
           url: absoluteUrl('/products'),
           mainEntity: {
             '@type': 'ItemList',
-            numberOfItems: products.length,
-            itemListElement: products.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: absoluteUrl(`/products/${p.slug}`), name: p.name })),
+            numberOfItems: sorted.length,
+            itemListElement: sorted.map((p, i) => ({ '@type': 'ListItem', position: i + 1, url: absoluteUrl(`/products/${p.slug}`), name: p.name })),
           },
         }}
       />

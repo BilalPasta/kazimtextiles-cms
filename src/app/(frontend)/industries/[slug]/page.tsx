@@ -7,6 +7,7 @@ import { PageHead } from '@/components/PageHead'
 import { ProductCard } from '@/components/ProductCard'
 import { RichText } from '@/components/RichText'
 import { getIndustries, getIndustry, getProducts, populatedList } from '@/lib/payload'
+import { followRedirect } from '@/lib/redirects'
 import { buildMetadata } from '@/lib/seo'
 import type { Category, Industry, Product } from '@/payload-types'
 
@@ -25,8 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function IndustryPage({ params }: Props) {
-  const industry = await getIndustry((await params).slug)
-  if (!industry) notFound()
+  const { slug } = await params
+  const industry = await getIndustry(slug)
+  if (!industry) {
+    await followRedirect(`/industries/${slug}`)
+    notFound()
+  }
 
   const categories = populatedList<Category>(industry.categories)
   let products = populatedList<Product>(industry.featuredProducts)
@@ -39,7 +44,7 @@ export default async function IndustryPage({ params }: Props) {
       <PageHead crumbs={[{ label: 'Industries', href: '/industries' }, { label: industry.name }]} eyebrow={industry.buyers} title={headingFor(industry)} intro={industry.summary}>
         <div className="hero-actions">
           <Link className="btn gold" href={`/quote?industry=${industry.slug}`}>
-            Get a quote for your {industry.name.toLowerCase()} business →
+            Request a wholesale quote →
           </Link>
         </div>
       </PageHead>
@@ -70,7 +75,7 @@ export default async function IndustryPage({ params }: Props) {
                 <span className="eyebrow">Recommended products</span>
                 <h2>Textiles for {industry.name.toLowerCase()}</h2>
               </div>
-              <p>All produced to your size, fabric, color, branding and packing requirements.</p>
+              <p>Quoted to your size, material, quantity and packing requirements through our manufacturing partners.</p>
             </div>
             <div className="product-grid">
               {products.map((p) => (

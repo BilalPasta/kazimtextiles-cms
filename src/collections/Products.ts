@@ -4,10 +4,11 @@ import { faqsField } from '../fields/faqs'
 import { anyone, authenticated } from '../lib/access'
 import { revalidateAfterChange, revalidateAfterDelete } from '../hooks/revalidate'
 
+/** Supply status. Values are stored in the database; only the labels are shown on the site. */
 export const availabilityOptions = [
-  { label: 'Made to order', value: 'made-to-order' },
-  { label: 'Regular production program', value: 'program' },
-  { label: 'Custom development', value: 'custom' },
+  { label: 'Quoted to specification', value: 'made-to-order' },
+  { label: 'Confirmed supply program', value: 'program' },
+  { label: 'Custom sourcing inquiry', value: 'custom' },
 ]
 
 export const Products: CollectionConfig = {
@@ -42,7 +43,12 @@ export const Products: CollectionConfig = {
       required: true,
       admin: { description: 'One or two sentences for product cards and the top of the product page.' },
     },
-    { name: 'application', label: 'Typical use', type: 'text', admin: { description: 'e.g. "Back-of-house cleaning and food prep"' } },
+    {
+      name: 'application',
+      label: 'Typical commercial applications',
+      type: 'text',
+      admin: { description: 'Comma-separated, e.g. "Restaurants, bars, catering kitchens"' },
+    },
     { name: 'image', label: 'Main image', type: 'upload', relationTo: 'media', required: true },
     { name: 'gallery', type: 'upload', relationTo: 'media', hasMany: true },
     { name: 'description', label: 'Full description', type: 'richText' },
@@ -63,17 +69,34 @@ export const Products: CollectionConfig = {
     },
     {
       name: 'customization',
-      label: 'Customization options',
+      label: 'Available options',
       type: 'array',
-      admin: { description: 'e.g. Custom sizes, Logo embroidery, Private-label packaging' },
+      admin: { description: 'Styles and variants offered on this page, e.g. "Bib aprons", "Waist aprons". Only list options the supplier has confirmed or mark them as subject to quotation.' },
       fields: [{ name: 'option', type: 'text', required: true }],
     },
     {
       type: 'row',
       fields: [
-        { name: 'moq', label: 'Minimum order (MOQ)', type: 'text', admin: { width: '50%', placeholder: 'Confirmed with quote' } },
-        { name: 'leadTime', label: 'Lead time', type: 'text', admin: { width: '50%', placeholder: 'Confirmed with quote' } },
+        { name: 'moq', label: 'Minimum order (MOQ)', type: 'text', admin: { width: '50%', placeholder: 'Confirmed with quotation' } },
+        { name: 'leadTime', label: 'Lead time', type: 'text', admin: { width: '50%', placeholder: 'Confirmed with quotation' } },
       ],
+    },
+    {
+      type: 'row',
+      fields: [
+        { name: 'packaging', type: 'text', admin: { width: '50%', placeholder: 'Based on approved specification' } },
+        {
+          name: 'customizationStatus',
+          label: 'Customization',
+          type: 'text',
+          admin: { width: '50%', placeholder: 'Subject to supplier availability' },
+        },
+      ],
+    },
+    {
+      name: 'searchTerms',
+      type: 'textarea',
+      admin: { description: 'Other names buyers search for, e.g. "bar mops, restaurant towels". Used by catalog search only; not shown.' },
     },
     {
       name: 'priceGuide',

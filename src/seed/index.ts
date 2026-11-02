@@ -1,6 +1,7 @@
 /**
  * Seeds the CMS with the Kazim Textiles catalog and site content.
  *   pnpm seed
+ * The base catalog below is then narrowed to the current 22-product catalog by applySourcingUpdate().
  * WARNING: deletes existing products, categories, industries, pages, guides and media first.
  * Quote requests and users are never touched.
  */
@@ -10,6 +11,7 @@ import path from 'path'
 import { getPayload } from 'payload'
 import { fileURLToPath } from 'url'
 import { categoryContent, descriptionOverrides, featuredProducts, guides, homepage, imageAlt, imageOverrides, industries, pages, productIndustryExtras } from './content'
+import { applySourcingUpdate } from './apply-sourcing-update'
 import { p, rt } from './richtext'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -152,7 +154,7 @@ async function run() {
         application: prod.application,
         image: img(imageOverrides[prod.slug] ?? prod.image),
         description: rt(
-          p(`Kazim Textiles produces wholesale ${prod.name.toLowerCase()} to order for ${prod.application.toLowerCase()}. Choose a standard specification or send us your own size, fabric, weight, color, branding and packing requirements.`),
+          p(`Wholesale ${prod.name.toLowerCase()} for ${prod.application.toLowerCase()}, quoted to your specification.`),
         ),
         specs: cat?.specs,
         customization: cat?.customization.map((option) => ({ option })),
@@ -264,7 +266,11 @@ async function run() {
     },
     context: ctx(),
   })
-  log('updated globals — done')
+  log('updated globals')
+
+  // Bring the base catalog in line with the current 22-product sourcing catalog and copy.
+  await applySourcingUpdate(payload, log)
+  log('done')
   process.exit(0)
 }
 
