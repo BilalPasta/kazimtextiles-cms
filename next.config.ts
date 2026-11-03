@@ -19,6 +19,17 @@ const nextConfig: NextConfig = {
     }
     return webpackConfig
   },
+  // The default Vercel address serves the same pages; send it to the real domain so only one copy is indexed.
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'kazim-textiles.vercel.app' }],
+        destination: 'https://www.kazimtextiles.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   reactStrictMode: true,
   turbopack: { root: path.resolve(dirname) },
 }
