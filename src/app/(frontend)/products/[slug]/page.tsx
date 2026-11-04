@@ -172,7 +172,8 @@ export default async function ProductPage({ params }: Props) {
               <h2 id="supply-heading">Supply & ordering</h2>
               <p className="muted">
                 Kazim Textiles sources this product through its manufacturing partners. Minimums, lead times and packaging are confirmed in a
-                written quotation based on your specification and quantity.
+                written quotation based on your specification and quantity. See how specifications are checked on our{' '}
+                <Link href="/quality-assurance">quality assurance</Link> page.
               </p>
               <dl className="terms-list">
                 {supplyTerms(product).map((s) => (

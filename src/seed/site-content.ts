@@ -125,7 +125,7 @@ export const homepage = {
     },
   ],
   meta: {
-    title: 'Commercial Textiles for U.S. Wholesalers & Distributors | Kazim Textiles',
+    title: 'Wholesale Commercial Textiles & Sourcing | Kazim Textiles',
     description:
       'Pennsylvania-based wholesale textile sourcing and supply: bar mops, shop towels, wiping rags, kitchen towels, hotel linens and healthcare textiles quoted to your specifications.',
   },
@@ -224,7 +224,7 @@ export const categories: Record<string, CategoryCopy> = {
   },
   'healthcare-institutional': {
     name: 'Healthcare & Institutional',
-    heading: 'Wholesale Scrubs, Patient Gowns & Hospital Sheets',
+    heading: 'Wholesale Healthcare Textiles: Scrubs, Gowns & Sheets',
     intro: 'Medical scrub sets, patient gowns and hospital bed sheets for clinics, care facilities and institutional linen programs.',
     buyerChecklist: 'Item, fabric, sizes or size breakdown, colors, closure style for gowns, mattress dimensions for sheets, estimated quantity and delivery ZIP code.',
     body: rt(
@@ -243,6 +243,8 @@ export const categories: Record<string, CategoryCopy> = {
 
 type IndustryCopy = {
   name?: string
+  /** Search-result title when the heading is too long for Google (~60 characters). */
+  metaTitle?: string
   heading: string
   summary: string
   buyers?: string
@@ -282,7 +284,8 @@ export const industries: Record<string, IndustryCopy> = {
     ],
   },
   'healthcare-medical': {
-    heading: 'Wholesale Scrubs, Patient Gowns & Hospital Sheets',
+    heading: 'Linen and Uniform Supply for Hospitals and Clinics',
+    metaTitle: 'Hospital & Clinic Linen Supply | Kazim Textiles',
     summary: 'Medical scrub sets, patient gowns, hospital bed sheets, towels and washcloths sourced to your facility specification.',
     categories: ['healthcare-institutional', 'hotel-bath-spa'],
     needs: [
@@ -321,6 +324,7 @@ export const industries: Record<string, IndustryCopy> = {
   },
   'commercial-laundries': {
     heading: 'Wholesale Textiles for Linen Rental & Commercial Laundries',
+    metaTitle: 'Textiles for Commercial Laundries | Kazim Textiles',
     summary: 'Shop towels, bar mops, napkins, tablecloths, bath towels and sheets for linen rental companies and industrial laundries.',
     categories: ['industrial-wiping-cleaning', 'kitchen-foodservice-towels', 'hotel-bath-spa', 'restaurant-table-linens'],
     needs: [
@@ -383,6 +387,7 @@ export const industries: Record<string, IndustryCopy> = {
   },
   'schools-camps-dormitories': {
     heading: 'Wholesale Bedding & Towels for Schools, Dorms and Camps',
+    metaTitle: 'Bedding & Towels for Schools and Camps | Kazim Textiles',
     summary: 'Bed sheets, pillowcases, towels and kitchen textiles for universities, boarding schools, camps and shelters.',
     categories: ['hotel-bath-spa', 'kitchen-foodservice-towels'],
     needs: [
@@ -554,7 +559,7 @@ export const retiredPages: Record<string, string> = {
   'private-label-manufacturing': '/custom-textile-sourcing',
 }
 
-export const guides: Record<string, { excerpt?: string; relatedProducts: string[]; content: ReturnType<typeof rt> }> = {
+export const guides: Record<string, { excerpt?: string; metaTitle?: string; relatedProducts: string[]; content: ReturnType<typeof rt> }> = {
   'how-to-request-a-textile-quote': {
     relatedProducts: ['bar-mop-towels', 'shop-towels', 'bath-towels'],
     content: rt(
@@ -600,6 +605,7 @@ export const guides: Record<string, { excerpt?: string; relatedProducts: string[
     ),
   },
   'bar-mop-vs-huck-vs-flour-sack-towels': {
+    metaTitle: 'Bar Mop vs. Huck vs. Flour Sack Towels | Kazim Textiles',
     relatedProducts: ['bar-mop-towels', 'huck-towels', 'flour-sack-towels', 'kitchen-towels'],
     content: rt(
       h2('Bar mop towels'),

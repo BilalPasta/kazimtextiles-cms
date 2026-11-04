@@ -38,7 +38,7 @@ export async function Footer() {
           </div>
           {nav.footerColumns?.map((col) => (
             <div key={col.id}>
-              <h4>{col.title}</h4>
+              <h2 className="footer-title">{col.title}</h2>
               {col.links?.map((l) => (
                 <Link key={l.id} href={l.url}>
                   {l.label}
@@ -52,7 +52,8 @@ export async function Footer() {
             © {new Date().getFullYear()} {nav.copyright || settings.companyName}
           </span>
           <span>
-            <Link href="/privacy-policy">Privacy</Link> · <Link href="/terms">Terms</Link> · <Link href="/quote">Request a quote ↗</Link>
+            <Link href="/blog">Blog</Link> · <Link href="/quality-assurance">Quality assurance</Link> · <Link href="/privacy-policy">Privacy</Link> · <Link href="/terms">Terms</Link> ·{' '}
+            <Link href="/quote">Request a quote ↗</Link>
           </span>
         </div>
       </div>

@@ -1,6 +1,6 @@
 /**
  * Tiny builder for Lexical rich text used by the seed. Supports headings,
- * paragraphs and bullet lists, with **bold** and [label](/url) inline.
+ * paragraphs, bullet and numbered lists, tables and quotes, with **bold** and [label](/url) inline.
  */
 type Node = { [k: string]: unknown; type: string; version: number }
 
@@ -40,6 +40,35 @@ export const ul = (items: string[]): Node => ({
   tag: 'ul',
   start: 1,
   children: items.map((t, i) => ({ ...base, type: 'listitem', value: i + 1, children: inline(t) })),
+})
+
+export const ol = (items: string[]): Node => ({
+  ...base,
+  type: 'list',
+  listType: 'number',
+  tag: 'ol',
+  start: 1,
+  children: items.map((t, i) => ({ ...base, type: 'listitem', value: i + 1, children: inline(t) })),
+})
+export const quote = (t: string): Node => ({ ...base, type: 'quote', children: inline(t) })
+
+/** First row is the header row. */
+export const table = (rows: string[][]): Node => ({
+  ...base,
+  type: 'table',
+  children: rows.map((cells, r) => ({
+    ...base,
+    type: 'tablerow',
+    children: cells.map((c) => ({
+      ...base,
+      type: 'tablecell',
+      headerState: r === 0 ? 1 : 0,
+      colSpan: 1,
+      rowSpan: 1,
+      backgroundColor: null,
+      children: [p(c)],
+    })),
+  })),
 })
 
 export const rt = (...children: Node[]) => ({ root: { ...base, type: 'root', format: '' as const, children } })
