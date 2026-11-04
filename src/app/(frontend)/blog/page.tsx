@@ -31,6 +31,7 @@ export default async function BlogPage() {
               <article className="guide-card" key={post.id}>
                 {post.image && <Img media={post.image} className="photo" sizes="(max-width: 780px) 100vw, 33vw" />}
                 <div className="copy">
+                  {post.tag && <span className="overline">{post.tag}</span>}
                   <h2>
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h2>

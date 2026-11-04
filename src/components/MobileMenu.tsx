@@ -101,7 +101,7 @@ export function MobileMenu({
             <div className="mnav-panel" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Menu">
               <div className="mnav-head">
                 <Link href="/" className="mnav-logo" aria-label="Kazim Textiles home">
-                  <Image src="/brand/kazim-logo-v2.png" alt="Kazim Textiles" width={625} height={541} sizes="64px" />
+                  <Image src="/brand/kazim-logo-header.webp" alt="Kazim Textiles" width={166} height={144} sizes="64px" />
                 </Link>
                 <button ref={closeRef} type="button" className="mnav-close" aria-label="Close menu" onClick={() => setOpen(false)}>
                   <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">

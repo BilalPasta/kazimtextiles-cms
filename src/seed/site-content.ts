@@ -224,7 +224,7 @@ export const categories: Record<string, CategoryCopy> = {
   },
   'healthcare-institutional': {
     name: 'Healthcare & Institutional',
-    heading: 'Wholesale Scrubs, Patient Gowns & Hospital Sheets',
+    heading: 'Wholesale Healthcare Textiles: Scrubs, Gowns & Sheets',
     intro: 'Medical scrub sets, patient gowns and hospital bed sheets for clinics, care facilities and institutional linen programs.',
     buyerChecklist: 'Item, fabric, sizes or size breakdown, colors, closure style for gowns, mattress dimensions for sheets, estimated quantity and delivery ZIP code.',
     body: rt(
@@ -284,7 +284,8 @@ export const industries: Record<string, IndustryCopy> = {
     ],
   },
   'healthcare-medical': {
-    heading: 'Wholesale Scrubs, Patient Gowns & Hospital Sheets',
+    heading: 'Linen and Uniform Supply for Hospitals and Clinics',
+    metaTitle: 'Hospital & Clinic Linen Supply | Kazim Textiles',
     summary: 'Medical scrub sets, patient gowns, hospital bed sheets, towels and washcloths sourced to your facility specification.',
     categories: ['healthcare-institutional', 'hotel-bath-spa'],
     needs: [

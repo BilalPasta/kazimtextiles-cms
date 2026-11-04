@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params }: Props) {
   const date = post.publishedAt ? new Date(post.publishedAt) : null
   return (
     <>
-      <PageHead crumbs={[{ label: 'Blog', href: '/blog' }, { label: post.title }]} title={post.title} intro={post.excerpt}>
+      <PageHead crumbs={[{ label: 'Blog', href: '/blog' }, { label: post.title }]} eyebrow={post.tag} title={post.title} intro={post.excerpt}>
         {date && (
           <p className="article-meta">
             {post.author} · <time dateTime={date.toISOString()}>{date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
@@ -43,9 +43,10 @@ export default async function BlogPostPage({ params }: Props) {
       <article className="section">
         <div className="container narrow">
           {post.image && (
-            <div className="article-hero">
+            <figure className="article-hero">
               <Img media={post.image} variant="large" sizes="(max-width: 1000px) 100vw, 1000px" priority />
-            </div>
+              {post.imageCaption && <figcaption>{post.imageCaption}</figcaption>}
+            </figure>
           )}
           <RichText data={post.content} />
         </div>
@@ -79,6 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
           datePublished: post.publishedAt || post.createdAt,
           dateModified: post.updatedAt,
           author: { '@type': 'Organization', name: post.author || settings.companyName },
+          keywords: post.tag || undefined,
           publisher: { '@id': absoluteUrl('/#organization') },
           mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
         }}

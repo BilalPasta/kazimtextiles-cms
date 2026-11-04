@@ -18,6 +18,7 @@ export async function generateStaticParams() {
 }
 
 const headingFor = (i: Industry) => i.heading || i.name
+const needsHeadingFor = (i: Industry) => `What ${i.name.toLowerCase()} buyers need`
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const industry = await getIndustry((await params).slug)
@@ -54,14 +55,17 @@ export default async function IndustryPage({ params }: Props) {
           <div className="container">
             <RichText data={industry.intro} />
             {!!industry.needs?.length && (
-              <div className="needs-grid" style={{ marginTop: 30 }}>
+              <>
+                <h2 style={{ marginTop: industry.intro ? 40 : 0 }}>{needsHeadingFor(industry)}</h2>
+                <div className="needs-grid" style={{ marginTop: 24 }}>
                 {industry.needs.map((n) => (
                   <article className="info-card" key={n.id}>
                     <h3>{n.title}</h3>
                     <p>{n.text}</p>
                   </article>
                 ))}
-              </div>
+                </div>
+              </>
             )}
           </div>
         </section>

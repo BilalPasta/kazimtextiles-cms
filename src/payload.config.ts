@@ -1,6 +1,6 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { resendAdapter } from '@payloadcms/email-resend'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { EXPERIMENTAL_TableFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { seoPlugin } from '@payloadcms/plugin-seo'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
@@ -48,7 +48,8 @@ export default buildConfig({
       ],
     },
   },
-  editor: lexicalEditor(),
+  // Tables are used in blog posts (care checklists, troubleshooting).
+  editor: lexicalEditor({ features: ({ defaultFeatures }) => [...defaultFeatures, EXPERIMENTAL_TableFeature()] }),
   // Dev auto-pushes the schema; production applies src/migrations in the Vercel build (pnpm run vercel-build).
   db: postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI || process.env.DATABASE_URL || '' } }),
   // Without a key Payload falls back to logging emails to the console; quote requests are still saved.

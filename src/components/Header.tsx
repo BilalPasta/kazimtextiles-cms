@@ -29,7 +29,7 @@ export async function Header() {
       )}
       <header className="header">
         <div className="container headerline">
-          <Brand settings={settings} priority />
+          <Brand settings={settings} />
           <nav className="headerlinks" aria-label="Main navigation">
             {nav.headerLinks?.map((l) => (
               <Link key={l.id} href={l.url}>

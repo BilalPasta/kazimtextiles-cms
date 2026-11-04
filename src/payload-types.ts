@@ -675,6 +675,10 @@ export interface Post {
    */
   excerpt: string;
   image?: (number | null) | Media;
+  /**
+   * Optional. Shown under the main image.
+   */
+  imageCaption?: string | null;
   content: {
     root: {
       type: string;
@@ -706,6 +710,10 @@ export interface Post {
    */
   slug?: string | null;
   publishedAt?: string | null;
+  /**
+   * Main topic, e.g. "Microfiber Care". Shown above the title and on the blog card.
+   */
+  tag?: string | null;
   author?: string | null;
   readTime?: string | null;
   meta?: {
@@ -1215,6 +1223,7 @@ export interface PostsSelect<T extends boolean = true> {
   title?: T;
   excerpt?: T;
   image?: T;
+  imageCaption?: T;
   content?: T;
   faqs?:
     | T
@@ -1226,6 +1235,7 @@ export interface PostsSelect<T extends boolean = true> {
   relatedProducts?: T;
   slug?: T;
   publishedAt?: T;
+  tag?: T;
   author?: T;
   readTime?: T;
   meta?:
